@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Jquery Course Script</title>
+	<script type="text/javascript" src="js/jquery-1.11.0.min.js" ></script>
+	
+	<script type="text/javascript">
+		$(function() {
+			$('button').click(function() {
+				$('<div>Click!</div>').appendTo('#messages');
+			});
+			
+			$('#hideTips').click(function() {
+				$('.tip').hide();
+			});
+			
+			//test in console:
+			console.log("div lenght: " + $('#notexists').length );
+			
+			console.log("select section, #id01, .class01: " + $('section, #id01, .class01').length );
+// 			$.each( $('section, #id01, .class01') , function( i, val ) {
+// 				console.log("index: " + i + ", val: " + val.innerHTML );
+// 			});
+			
+			console.log("select section, #id02 .class01: " + $('section, #id02 .class01').length );
+// 			$.each( $('section, #id02 .class01') , function( i, val ) {
+// 				console.log("index: " + i + ", val: " + val.innerHTML );
+// 			});
+			
+			console.log("select section, .c-section01.c-section02: " + $('section, .c-section01.c-section02').length );
+// 			$.each( $('section, .c-section01.c-section02') , function( i, val ) {
+// 				console.log("index: " + i + ", val: " + val.innerHTML );
+// 			});
+			
+// 			$.each( $('section.c-section02.c-section02.c-section03') , function( i, val ) {
+// 				console.log("index: " + i + ", val: " + val.innerHTML );
+// 			});
+
+			console.log("select div #test-finding-in-dom > section: " + $('div #test-finding-in-dom > section').length );
+// 			$.each( $('div #test-finding-in-dom > section') , function( i, val ) {
+// 				console.log("index: " + i + ", val: " + val.innerHTML );
+// 			});
+			
+			console.log("select #test-finding-in-dom-0 > *: " + $('div #test-finding-in-dom-0 > *').length );
+			$.each( $('div #test-finding-in-dom-0 > *') , function( i, val ) {
+				console.log("index: " + i + ", val: " + val.innerHTML );
+			});
+			
+			
+			var title = $( "em" ).attr( "title" );
+			$( "#emphasisdiv" ).text( title ); /* huge,gigantic */
+			console.log("attributo : " +  $("em[title $= 'tic']") 
+					+ " , contenuto : " + $("em[title $= 'tic']")[0].innerHTML );
+			console.log("attributo : " +  $("em[title *= 'ant']") 
+					+ " , contenuto : " + $("em[title *= 'ant']")[0].innerHTML );
+			console.log("attributo : " +  $("em[title ^= 'hug']") 
+					+ " , contenuto : " + $("em[title ^= 'hug']")[0].innerHTML );
+			console.log("attributo : " +  $("em[title ~= 'huge']") 
+					+ " , contenuto : " + $("em[title ~= 'huge']")[0].innerHTML );
+			
+		});
+	</script>
+	
+	<style type="text/css">
+/* 		#test-finding-in-dom-0 > * , #test-finding-in-dom-0 > * > h2  {color:red} */
+/* 		#test-finding-in-dom-0 > * > * {color:blue} */
+		h3 + div  {color:red;}
+		
+		
+		h3 ~ .cl-fr-02  {color:blue;}
+		
+/* 		http://html.it/guide/esempi/css/esempi/selettore-figli.html */
+/* 		#box p {color: green;} */
+		#box > p {color: green;}
+		
+	</style>
+
+</head>
+<body>
+
+	<div id="main-container">
+		
+		<button title="title-button" name="name-button">
+			button-component
+		</button>
+		<div id="messages"> - </div>
+		
+		<br>
+		<input class="tip" value="input 01 - val">
+		<input class="tip" value="input 02 - val">
+		<input class="no-tip" value="input 03 - val">
+		<button id="hideTips" value="hide-tips" class="class01">Hide Tips</button>
+		
+		<div id="test-finding-in-dom-0">
+			<div>
+				test - 00
+				<h2>test - h2 - 00</h2>
+				
+				<div id="id00-adiacenti-02-prec" class="cl-fr-02">frat-02-prec</div>
+				<h3>test - h3 - 00</h3>
+				
+				<div id="id00-fratelli-adiacenti-01" class="cl-fr-ad-01">fr-adiac-01</div>
+				<div id="id00-fratelli-adiacenti-02" class="cl-fr-ad-01">fr-adiac-02</div>
+				<div id="id00-adiacenti-01" class="cl-fr-01">frat-01</div>
+				<div id="id00-adiacenti-02" class="cl-fr-02">frat-02</div>
+				<div id="id00-adiacenti-03" class="cl-fr-02">frat-03</div>
+				<div id="id00-adiacenti-04" class="cl-fr-01">frat-04</div>
+			</div>
+			<div>
+				<section title="titolo01">
+					<div id="id01"><a href="#" class="class01">a00-1</a></div>
+					<div id="id02"><a href="#" class="class01">a00-2</a></div>
+					<div id="id01"><a href="#" class="class01">a00-3</a></div>
+				</section>
+			</div>
+		</div>
+		<div id="test-finding-in-dom">
+			<section title="titolo01">
+				<div id="id01"><a href="#" class="class01">a01-1</a></div>
+				<div id="id02"><a href="#" class="class01">a01-2</a></div>
+				<div id="id01"><a href="#" class="class01">a01-3</a></div>
+			</section>
+			<section title="titolo01" class="c-section01 c-section02">
+				<div id="id01"><a href="#" class="class01">a02-1</a>
+					<a href="#" class="class01">a02-12</a><a href="#" class="class01">a02-13</a></div>
+				<div id="id02"><a href="#" class="class01">a02-2</a></div>
+				<div id="id01"><a href="#" class="class01">a02-3</a></div>
+			</section>
+			<section title="titolo03" class="c-section01">
+				<div id="id01"><a href="#" class="class01">a03-1</a></div>
+				<div id="id02"><a href="#" class="class01">a03-2</a></div>
+				<div id="id01"><a href="#" class="class01">a03-3</a></div>
+			</section>
+			<section title="titolo01" class="c-section01 c-section02">
+				<div id="id01"><a href="#" class="class01">a04-1</a></div>
+				<div id="id02"><a href="#" class="class01">a04-2</a></div>
+				<div id="id01"><a href="#" class="class01">a04-3</a></div>
+			</section>
+			<section title="titolo01" class="c-section01 c-section02 c-section03">
+				<div id="id01"><a href="#" class="class05">a05-1</a></div>
+				<div id="id02"><a href="#" class="class05">a05-2</a></div>
+				<div id="id01"><a href="#" class="class01">a05-3</a><a href="#" class="class01">a05-32</a></div>
+			</section>
+		</div>
+
+
+	</div>
+	
+	<div id="box">
+		<p>Questo paragrafo &egrave; figlio di un div con id <code>#box</code> e ha il testo verde.</p>
+		<div>
+			<p>Questo paragrafo non &egrave; figlio di un div con id <code>#box</code> e non ha il testo verde.</p>
+		</div>
+		<p>Questo paragrafo &egrave; figlio di un div con id <code>#box</code> e ha il testo verde.</p>
+	</div>
+
+	<p>Once there was a <em title="huge ,gigantic">large</em> dinosaur...</p>
+ 
+	The title of the emphasis is:<div id="emphasisdiv"></div>
+
+
+</body>
+</html>

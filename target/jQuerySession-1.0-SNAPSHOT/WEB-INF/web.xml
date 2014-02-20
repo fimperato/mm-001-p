@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+    <display-name>jQuery Session Web Application</display-name>
+
+	<servlet>
+		<display-name>AjaxServlet</display-name>
+	    <servlet-name>AjaxServlet</servlet-name>
+	    <servlet-class>com.avanade.test.jquery.servlets.AjaxServlet</servlet-class>
+	  </servlet>
+	  <servlet-mapping>
+	    <servlet-name>AjaxServlet</servlet-name>
+	    <url-pattern>/AjaxServlet</url-pattern>
+	  </servlet-mapping>
+
+
+    <!-- Define the default session timeout for your application,
+         in minutes.  From a servlet or JSP page, you can modify
+         the timeout for a particular session dynamically by using
+         HttpSession.getMaxInactiveInterval(). -->
+
+    <session-config>
+      <session-timeout>30</session-timeout>    <!-- 30 minutes -->
+    </session-config>
+
+
+</web-app>

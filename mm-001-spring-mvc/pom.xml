@@ -1,0 +1,105 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+  <parent>
+    <groupId>com.ava.test.jquery</groupId>
+    <artifactId>com-ava-test-jquery</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  
+  <groupId>com.ava.test.jquery.springmvc</groupId>
+  <artifactId>com-ava-test-jquery-session01-springmvc</artifactId>
+  <packaging>war</packaging>
+  
+  <properties>
+		<spring.version>3.0.5.RELEASE</spring.version>
+		<java-version>1.6</java-version>
+	</properties>
+
+	<dependencies>
+
+		<!-- Spring 3 dependencies -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		
+		<!-- spring-database dependencies -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.26</version>
+		</dependency>
+		 <dependency>
+	        <groupId>org.springframework</groupId>
+	        <artifactId>spring-jdbc</artifactId>
+	        <version>${spring.version}</version>
+	      </dependency>
+		
+		<!-- json integration -->
+		<!-- Jackson JSON Mapper -->
+		<dependency>
+		    <groupId>org.codehaus.jackson</groupId>
+		    <artifactId>jackson-mapper-asl</artifactId>
+		    <version>1.8.2</version>
+		</dependency>
+		 
+		<dependency>
+		    <groupId>org.codehaus.jackson</groupId>
+		    <artifactId>jackson-core-asl</artifactId>
+		    <version>1.8.2</version>
+		</dependency>
+		
+		<dependency>
+		  <groupId>javax.servlet</groupId>
+		  <artifactId>servlet-api</artifactId>
+		  <version>2.5</version>
+		  <scope>provided</scope>
+		</dependency>
+		
+		<!-- other modules -->
+	  	<dependency>
+	      <groupId>com.ava.test.jquery.rest</groupId>
+	      <artifactId>com-ava-test-jquery-rest</artifactId>
+	      <version>1.0-SNAPSHOT</version>
+	    </dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>SpringMVC3</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java-version}</source>
+					<target>${java-version}</target>
+				</configuration>
+				<version>3.0</version>
+			</plugin>
+			
+			<plugin>
+		        <groupId>org.apache.tomcat.maven</groupId>
+		        <artifactId>tomcat7-maven-plugin</artifactId>
+		        <version>2.0</version>
+		        <configuration>
+		          <url>http://localhost:8080/manager</url>
+		        </configuration>
+		    </plugin>
+		</plugins>
+	</build>
+	
+</project>
